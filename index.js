@@ -117,3 +117,35 @@ providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: tru
   }
   
   // ================================ End Modal =============================
+  
+  // ===================== TOKEN VALIDATION ==========================
+  
+  
+const jwt = require('jsonwebtoken');
+module.exports = {
+    chectToken: (req, res, next) => {
+        let token = req.get('authorization')
+        if (token) {
+            jwt.verify(token, "ajayjwttokenid", (err, decode) => {
+                if (err) {
+                    res.json({
+                        status: 0,
+                        message: "Invalid token............"
+                    })
+                } else {
+                    res.decded = decode;
+                    next();
+                }
+            })
+
+        } else {
+            res.json({
+                status: 0,
+                message: "Access denied! Unauthorizatin User!!"
+            })
+        }
+    }
+}
+
+
+// =================================== END TOKEN VALIDATION =====================
