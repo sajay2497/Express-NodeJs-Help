@@ -149,3 +149,35 @@ module.exports = {
 
 
 // =================================== END TOKEN VALIDATION =====================
+
+
+// =================================== DELETE TO CONFIRMATION ====================
+
+
+Swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, LogOut it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          icon: 'success',
+          title: 'LogOut Successfully!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Cancelled',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
+	
+// =================================== END DELETE TO CONFIRMATION ====================
