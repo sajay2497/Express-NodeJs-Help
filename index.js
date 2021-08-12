@@ -181,3 +181,32 @@ Swal.fire({
     })
 	
 // =================================== END DELETE TO CONFIRMATION ====================
+
+
+
+// ================================= FORM VALIDATION ================================
+
+// TS FILE --------
+ setlimitform = new FormGroup({
+    website: new FormControl('all', Validators.required),
+  });
+  
+// END TS FILE -------
+
+// HTML -------
+
+<form [formGroup]="setlimitform" (ngSubmit)="onSetLimit()" method="post" autocomplete="off">
+<div class="col-md-4">
+	<label for="website" class="form-label">website</label>
+	<input type="text" formControlName="website" class="form-control" id="website">
+		<small><span class="text-danger" *ngIf='setlimitform.controls["website"].touched && setlimitform.controls["website"].hasError("required")'>
+		*Your Name is Required!!</span>
+		</small>
+</div>
+<div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-primary" style="width: -webkit-fill-available;">SET
+                                LIMIT</button>
+                        </div>
+</form>
+
+// ================================= END FORM VALIDATION ================================
