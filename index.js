@@ -210,3 +210,13 @@ Swal.fire({
 </form>
 
 // ================================= END FORM VALIDATION ================================
+
+
+// ================================ Cripto js =========================================
+
+ var encryptedAES = CryptoJS.AES.encrypt(val, "Vijay").toString();
+            var decryptedBytes = CryptoJS.AES.decrypt(encryptedAES, "Vijay");
+            console.log(encryptedAES);
+            console.log(decryptedBytes.toString(CryptoJS.enc.Utf8));
+
+// ================================ End Cripto js =========================================
