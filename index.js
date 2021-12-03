@@ -220,3 +220,22 @@ Swal.fire({
             console.log(decryptedBytes.toString(CryptoJS.enc.Utf8));
 
 // ================================ End Cripto js =========================================
+
+
+
+
+// ============================= Redis ====================================================
+
+const redis = require('redis');
+const redisUrl = 'redis://127.0.0.1:6379';
+const client = redis.createClient(redisUrl);
+
+const { promisify } = require('util');
+const aget = promisify(client.get).bind(client);
+
+
+client.set('Check-' + userc + '-' + gameCode, JSON.stringify(val), 'EX', 600);
+ let v = await aget('Check-' + userc + '-' + gameCode);
+console.log(v)
+
+// ================================= End Redis ===============================
