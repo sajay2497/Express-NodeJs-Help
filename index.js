@@ -239,3 +239,19 @@ client.set('Check-' + userc + '-' + gameCode, JSON.stringify(val), 'EX', 600);
 console.log(v)
 
 // ================================= End Redis ===============================
+
+
+// ==================================15 ka mins ki abhi ke time se 15 mint pahle =======================================
+	// abhi ke time date se 15 mint pahle ka time 
+  var d = new Date()
+    // console.log(d);
+    // d = Mon Feb 29 2016 08:00:09 GMT+0100 (W. Europe Standard Time)
+    var milliseconds = Date.parse(d)
+    // 1456729209000
+    milliseconds = milliseconds - (15 * 60 * 1000) //15 ka mins ki abhi ke time se 15 mint pahle 
+    // - 5 minutes
+    d = new Date(milliseconds)
+    // d = Mon Feb 29 2016 07:55:04 GMT+0100 (W. Europe Standard Time)
+    // console.log(d);
+
+// ================================ 15 ka mins ki abhi ke time se 15 mint pahle========================================
