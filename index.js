@@ -11,8 +11,18 @@ mongoose.connection.on("error", function (err) {
     return console.log(err);
 });
 
+
 // ====================== END MONGOOSE CONNECTION==============================
 
+// =================== Schama====================
+const mongoose = require('mongoose'); 
+const liabilitySchema = mongoose.Schema({
+    userName: { type: String, required: true },
+}, { timestamps: true });
+
+mongoose.set('useCreateIndex', true);
+liabilitySchema.index({ eventId: 1, runnerId: 1 });
+module.exports = mongoose.model('Liability', liabilitySchema);
 
 // ====================== Interceptor==================================
 
