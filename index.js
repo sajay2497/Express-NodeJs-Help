@@ -265,3 +265,31 @@ console.log(v)
     // console.log(d);
 
 // ================================ 15 ka mins ki abhi ke time se 15 mint pahle========================================
+
+
+//==========   array hierarchy create =========================================================================
+
+ buildTree(array:any) {
+    let tree:any = [];
+    for (let i = 0; i < array.length; i++) {
+    
+      if (array[i].parent_id) {
+        let parent = array.find((elem:any) => elem._id == array[i].parent_id);
+        if (parent) {
+          if (parent.children == undefined) {
+            parent.children = [];
+          }
+          parent.children.push(array[i]);
+        } else {
+          // parent.children.push(array[i]);
+          // console.error(`Parent not found for child with _id: ${array[i]._id}`);
+          return `Parent not found for child with _id: ${array[i]._id}`;
+        }
+      } else {
+        tree.push(array[i]);
+      }
+    }
+    return tree;
+  }
+
+// =========== End array hierarchy create     ========================================================
