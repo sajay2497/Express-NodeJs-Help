@@ -293,3 +293,25 @@ console.log(v)
   }
 
 // =========== End array hierarchy create     ========================================================
+
+//=================== Check Angular form gorup error function ======================================
+
+  getFormValidationErrors() {
+    Object.keys(this.personalInfoForm.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.personalInfoForm.get(key).errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach(keyError => {
+         console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+        });
+      }
+    });
+  }
+
+// ============================== End Check Angular form gorup error function ========================
+
+
+
+
+
+
+
