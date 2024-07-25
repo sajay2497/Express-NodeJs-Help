@@ -309,8 +309,14 @@ console.log(v)
 
 // ============================== End Check Angular form gorup error function ========================
 
+//====================== Start Is Code se hum apne nodejs ki api ka check karte hai ==========================
+/**
+* is code se hum ye check karte hai ki hamare nodejs me app me kya issue hai isme hum zip ko upload karte hai
+*/
+docker pull opensecurity/nodejsscan:latest
+docker run -it -p 9090:9090 opensecurity/nodejsscan:latest
 
-
+//====================== End Is Code se hum apne nodejs ki api ka check karte hai ==========================
 
 
 
